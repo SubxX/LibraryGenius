@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { getAllCategories } from "../controllers/categories.controller";
-import { requireAuthMiddleware } from '../middleware/auth.middleware';
 
 const router = Router()
 
 router.get('/', async (req, res) => {
-    res.send(getAllCategories())
+    const data = await getAllCategories()
+    res.send({ data })
 });
 
-router.get('/test', requireAuthMiddleware, async (req, res) => {
+router.get('/test', async (req, res) => {
     res.send({ status: true })
 });
 

@@ -1,18 +1,19 @@
 version: '3.3'
 services:
-  postgredb:
-    container_name: postgresdb
+  postgres:
     image: postgres
+    container_name: postgresdb
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_DB: librarygenius
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     volumes:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     expose:
       - 5432
-
-networks:
-  default:
-    name: postgre-service_default
+# networks:
+#   default:
+#     name: postgres-service_default

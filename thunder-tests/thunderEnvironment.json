@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "9139f9bf-8be2-4096-b7e1-f0a26a0d4514",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -2,
+    "created": "2023-04-17T09:52:57.488Z",
+    "modified": "2023-04-17T09:52:57.488Z",
+    "data": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM2N2MzZjViLWY4ZDAtNDE2Yi05MjU4LTgwMDZjNzYzYmY5NCIsImVtYWlsIjoic3ViaGFtYmhhdHRhY2hhcnlhNzAwQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNjgxNzI0MzQzfQ.aCgud-lXtoT_gYB3bUgL2QVDRIuNigYWT_wxHPi7jDE"
+      },
+      {
+        "name": "baseUrl",
+        "value": "http://localhost:3333/api"
+      }
+    ]
+  }
+]

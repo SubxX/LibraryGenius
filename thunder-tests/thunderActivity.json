@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "b10224f4-8b10-423f-90e8-40ed04ead1ca",
+    "colId": "history",
+    "containerId": "",
+    "name": "Signup",
+    "url": "http://localhost:3333/api/auth/signup",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T08:26:37.782Z",
+    "modified": "2023-04-17T08:26:37.782Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"name\":\"Subham Bhattacharya\",\n  \"password\":\"tomrider\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9d348840-57ab-4a70-8915-af79a11a3878",
+    "colId": "history",
+    "containerId": "",
+    "name": "signin",
+    "url": "http://localhost:3333/api/auth/signin",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T08:57:49.166Z",
+    "modified": "2023-04-17T09:08:08.897Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0a55bbc7-ca97-4da0-b6f4-c1be0f6a0bc4",
+    "colId": "history",
+    "containerId": "",
+    "name": "Me",
+    "url": "{{baseUrl}}/auth/me",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T09:53:39.441Z",
+    "modified": "2023-04-17T09:53:39.441Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  }
+]
