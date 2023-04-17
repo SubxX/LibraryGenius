@@ -1,1 +1,99 @@
-[]
+[
+  {
+    "_id": "ff4935aa-28a2-44e9-ac8c-700b095eb3f7",
+    "colId": "6889ae40-39d9-4935-a6b3-0aad9d36147a",
+    "containerId": "",
+    "name": "Get categories",
+    "url": "{{baseUrl}}/categories",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T19:04:38.385Z",
+    "modified": "2023-04-17T19:04:38.385Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "652677af-42d1-4ed3-b033-36fd5fde4afa",
+    "colId": "ccc411bd-4fa5-4dc2-a17e-873e0dde99ea",
+    "containerId": "",
+    "name": "Me",
+    "url": "{{baseUrl}}/auth/me",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T19:05:13.525Z",
+    "modified": "2023-04-17T19:05:13.525Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1d355199-8fb0-44cd-98c2-801e444d63ac",
+    "colId": "ccc411bd-4fa5-4dc2-a17e-873e0dde99ea",
+    "containerId": "",
+    "name": "login",
+    "url": "http://localhost:3333/api/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-17T19:05:21.342Z",
+    "modified": "2023-04-17T19:05:21.342Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\",\n  \"isManager\":true\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f60b866e-0c49-4ec1-bf69-95f17a752c52",
+    "colId": "ccc411bd-4fa5-4dc2-a17e-873e0dde99ea",
+    "containerId": "",
+    "name": "Signup",
+    "url": "http://localhost:3333/api/auth/user/signup",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-04-17T19:05:44.139Z",
+    "modified": "2023-04-17T19:05:44.139Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"name\":\"Subham Bhattacharya\",\n  \"password\":\"tomrider\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "788f1ab4-7bd5-4f58-b8a5-6456d70177e9",
+    "colId": "6889ae40-39d9-4935-a6b3-0aad9d36147a",
+    "containerId": "",
+    "name": "Create category",
+    "url": "{{baseUrl}}/categories",
+    "method": "POST",
+    "sortNum": 5000,
+    "created": "2023-04-17T19:05:59.618Z",
+    "modified": "2023-04-17T19:06:05.393Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Horror\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  }
+]

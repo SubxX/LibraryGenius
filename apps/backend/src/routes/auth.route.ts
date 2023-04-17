@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { createUser, signinUser, getUser } from "../controllers/auth.controller";
+import { login } from "../controllers/auth.controller";
 import { authMiddleWare } from "../middleware/auth.middleware";
-
+import { createUser, getUser } from "../controllers/user.controller";
 
 const router = Router()
 
+// Normal user signup
 router.post('/signup', async (req, res) => {
     try {
         const data = await createUser(req.body)
@@ -19,9 +20,9 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-router.post('/signin', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
-        const data = await signinUser(req.body)
+        const data = await login(req.body)
         res.send(data)
     } catch (err: any) {
         res
@@ -35,8 +36,8 @@ router.post('/signin', async (req, res) => {
 
 router.get('/me', authMiddleWare, async (req, res) => {
     try {
-        console.log(req?.user)
-        const data = await getUser(req?.user?.id)
+        const user = req?.user
+        const data = await getUser(user.id, 'isAdmin' in user)
         res.send(data)
     } catch (err: any) {
         res
@@ -47,5 +48,6 @@ router.get('/me', authMiddleWare, async (req, res) => {
             })
     }
 });
+
 
 export default router

@@ -8,7 +8,8 @@ type CustomRequestProps = {
   user?: {
     id: string;
     email: string;
-    role: 'USER' | 'MANAGER'
+    isAdmin?: boolean;
+    isVerified?: boolean
   }
 }
 declare global {

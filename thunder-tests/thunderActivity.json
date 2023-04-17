@@ -3,12 +3,31 @@
     "_id": "b10224f4-8b10-423f-90e8-40ed04ead1ca",
     "colId": "history",
     "containerId": "",
-    "name": "Signup",
-    "url": "http://localhost:3333/api/auth/signup",
+    "name": "User Signup",
+    "url": "http://localhost:3333/api/auth/user/signup",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-17T08:26:37.782Z",
-    "modified": "2023-04-17T08:26:37.782Z",
+    "modified": "2023-04-17T10:10:13.626Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"name\":\"Subham Bhattacharya\",\n  \"password\":\"tomrider\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fcff5fa1-3e22-49fd-b2ab-0bc11438ee92",
+    "colId": "history",
+    "containerId": "",
+    "name": "Manager Signup",
+    "url": "http://localhost:3333/api/auth/manager/signup",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T08:26:37.782Z",
+    "modified": "2023-04-17T18:18:13.359Z",
     "headers": [],
     "params": [],
     "body": {
@@ -22,17 +41,17 @@
     "_id": "9d348840-57ab-4a70-8915-af79a11a3878",
     "colId": "history",
     "containerId": "",
-    "name": "signin",
-    "url": "http://localhost:3333/api/auth/signin",
+    "name": "login",
+    "url": "http://localhost:3333/api/auth/login",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-17T08:57:49.166Z",
-    "modified": "2023-04-17T09:08:08.897Z",
+    "modified": "2023-04-17T18:19:52.765Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\"\n}",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\",\n  \"isManager\":true\n}",
       "form": []
     },
     "tests": []
@@ -46,9 +65,50 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-17T09:53:39.441Z",
-    "modified": "2023-04-17T09:53:39.441Z",
+    "modified": "2023-04-17T18:43:05.850Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "cc2748a8-ddb7-413a-b4c6-2ae66ee004ae",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get categories",
+    "url": "{{baseUrl}}/categories",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T09:53:39.441Z",
+    "modified": "2023-04-17T18:54:00.683Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f4961107-0f9d-4093-9727-c9b300e3ed78",
+    "colId": "history",
+    "containerId": "",
+    "name": "Create category",
+    "url": "{{baseUrl}}/categories",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-17T09:53:39.441Z",
+    "modified": "2023-04-17T18:59:46.271Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Horror\"\n}",
+      "form": []
+    },
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"

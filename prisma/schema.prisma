@@ -10,51 +10,61 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Manager {
+  id            String     @id @default(uuid())
+  email         String     @unique
+  name          String
+  created_at    DateTime   @default(now())
+  password      String
+  isAdmin       Boolean    @default(false)
+  isVerified    Boolean    @default(false)
+  categories    Category[]
+  authors       Author[]
+  books         Book[]
+  bookItems     BookItem[]
+}
+
 model User {
   id            String     @id @default(uuid())
   email         String     @unique
   name          String
   created_at    DateTime   @default(now())
   password      String
-  role          Role       @default(USER)
-  categories    Category[]
-  authors       Author[]
-  books         Book[]
-  bookItems     BookItem[]
   bookings      Booking[]
   bookingItems  BookingItem[]
 }
 
+
 model Category {
-  id          String     @id @default(uuid())
-  name        String
-  created_at   DateTime   @default(now())
-  user        User       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
-  created_by  String
+  id            String     @id @default(uuid())
+  name          String
+  created_at    DateTime   @default(now())
+  manager       Manager       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  created_by    String
   books Book[]
 }
 
 model Author{
-  id          String     @id @default(uuid())
-  name        String
-  created_at   DateTime   @default(now())
-  user        User       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
-  created_by  String
-  books Book[]
+  id            String     @id @default(uuid())
+  name          String
+  created_at    DateTime   @default(now())
+  manager       Manager       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  created_by    String
+  books         Book[]
 }
 
 model Book{
-  id          String @id @default(uuid())
-  ISBN        String
-  title       String
-  created_at   DateTime   @default(now())
-  user        User       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
-  created_by  String
-  author      Author     @relation(fields: [author_id], references: [id],onDelete: Cascade, onUpdate: Cascade)
-  author_id   String
-  category    Category   @relation(fields: [category_id], references: [id],onDelete: Cascade, onUpdate: Cascade)
-  category_id String
-  bookItems   BookItem[]
+  id            String @id @default(uuid())
+  ISBN          String
+  title         String
+  created_at    DateTime   @default(now())
+  manager       Manager       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  created_by    String
+  author        Author     @relation(fields: [author_id], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  author_id     String
+  category      Category   @relation(fields: [category_id], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  category_id   String
+  bookItems     BookItem[]
 }
 
 model BookItem{
@@ -62,8 +72,8 @@ model BookItem{
   acceptedDuration  Int
   title             String
   rack              Int
-  created_at         DateTime   @default(now())
-  user              User       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
+  created_at        DateTime   @default(now())
+  manager           Manager       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
   created_by        String
   book              Book       @relation(fields: [book_id], references: [id],onDelete: Cascade, onUpdate: Cascade)
   book_id           String
@@ -74,7 +84,7 @@ model Booking{
   id                String     @id @default(uuid())
   user              User       @relation(fields: [created_by], references: [id],onDelete: Cascade, onUpdate: Cascade)
   created_by        String
-  created_at         DateTime   @default(now())
+  created_at        DateTime   @default(now())
   bookingItems      BookingItem[]
 }
 
@@ -90,13 +100,5 @@ model BookingItem{
   booking_id        String
 }
 
-// model  BookItem{
-
-// }
-
-enum Role {
-  USER
-  MANAGER
-}
 
 // npx prisma migrate dev --name init
