@@ -15,6 +15,10 @@
       {
         "name": "baseUrl",
         "value": "http://localhost:3333/api"
+      },
+      {
+        "name": "userToken",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxNzE3NmYwLTE2NGUtNGE0MS1hMGU0LTFlNjA0MWQxYjMyMCIsImVtYWlsIjoic3ViaGFtYmhhdHRhY2hhcnlhNzAwQGdtYWlsLmNvbSIsIm5hbWUiOiJTdWJoYW0gQmhhdHRhY2hhcnlhIiwiY3JlYXRlZF9hdCI6IjIwMjMtMDQtMThUMTU6Mjg6MTQuMTg0WiIsImlhdCI6MTY4MTgzMTcwNn0.muXTtrG5MXVR3wj10_IzMlPoePx05Sd4h5fdqPjaSrE"
       }
     ]
   }

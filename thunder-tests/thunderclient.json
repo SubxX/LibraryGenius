@@ -44,12 +44,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-17T19:05:21.342Z",
-    "modified": "2023-04-17T19:05:21.342Z",
+    "modified": "2023-04-18T15:28:26.885Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\",\n  \"isManager\":true\n}",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"password\":\"tomrider\",\n  \"isManager\":false\n}",
       "form": []
     },
     "tests": []
@@ -59,16 +59,16 @@
     "colId": "ccc411bd-4fa5-4dc2-a17e-873e0dde99ea",
     "containerId": "",
     "name": "Signup",
-    "url": "http://localhost:3333/api/auth/user/signup",
+    "url": "http://localhost:3333/api/auth/signup",
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-04-17T19:05:44.139Z",
-    "modified": "2023-04-17T19:05:44.139Z",
+    "modified": "2023-04-18T15:28:14.190Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"name\":\"Subham Bhattacharya\",\n  \"password\":\"tomrider\"\n}",
+      "raw": "{\n  \"email\":\"subhambhattacharya700@gmail.com\",\n  \"name\":\"Subham Bhattacharya\",\n  \"password\":\"tomrider\",\n  \"isManager\": false\n}",
       "form": []
     },
     "tests": []
@@ -82,17 +82,173 @@
     "method": "POST",
     "sortNum": 5000,
     "created": "2023-04-17T19:05:59.618Z",
-    "modified": "2023-04-17T19:06:05.393Z",
+    "modified": "2023-04-18T14:57:48.359Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Horror\"\n}",
+      "raw": "{\n  \"name\":\"Finanace\"\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "b5fbe60d-4555-4736-b6cc-4f28af4dca57",
+    "colId": "f66721ea-a4b5-4772-adf0-345f7ad37ea1",
+    "containerId": "",
+    "name": "Create Author",
+    "url": "{{baseUrl}}/author",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-18T06:06:20.965Z",
+    "modified": "2023-04-18T06:22:54.135Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ffcb51d4-568e-47a5-9810-1c6ddcefffc4",
+    "colId": "f66721ea-a4b5-4772-adf0-345f7ad37ea1",
+    "containerId": "",
+    "name": "Get Authors",
+    "url": "{{baseUrl}}/author",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-18T06:07:45.778Z",
+    "modified": "2023-04-18T06:07:45.778Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c1e43915-42d8-4d6a-9f66-3ea5fb020e7f",
+    "colId": "b3efef6c-d221-4916-9be3-e74c84ce6491",
+    "containerId": "",
+    "name": "Get books",
+    "url": "{{baseUrl}}/book",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-18T14:16:19.911Z",
+    "modified": "2023-04-18T14:16:45.730Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "109f182d-6e0b-4e28-8686-f65f29f4ab83",
+    "colId": "b3efef6c-d221-4916-9be3-e74c84ce6491",
+    "containerId": "",
+    "name": "Create book",
+    "url": "{{baseUrl}}/book",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-18T14:16:51.267Z",
+    "modified": "2023-04-18T14:59:34.106Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ISBN\":\"asd12\",\n  \"title\":\"First Book\",\n  \"author_id\":\"d14640c3-2bcc-4704-956c-83a5fe933c0a\",\n  \"category_id\":\"4e3a49b9-d64d-465e-a442-82f606530968\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "2ddfc41d-7447-42df-ab55-134571453889",
+    "colId": "b3efef6c-d221-4916-9be3-e74c84ce6491",
+    "containerId": "",
+    "name": "Create book item",
+    "url": "{{baseUrl}}/book/item",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-04-18T14:59:44.149Z",
+    "modified": "2023-04-18T15:05:57.519Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"acceptedDuration\":24,\n  \"rack\":4,\n  \"book_id\":\"e604d718-09ba-4e8e-9158-e21f0c60bceb\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "10abe889-6e93-4a45-8757-e4ae2a004b54",
+    "colId": "dbe0b41d-c49a-4061-9367-8f800433bb06",
+    "containerId": "",
+    "name": "Create Booking",
+    "url": "{{baseUrl}}/booking",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-18T15:06:45.232Z",
+    "modified": "2023-04-18T18:14:50.751Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"items\":[\n    \"246fd80a-5cb5-41dc-9a11-e0a909796a7f\",\n    \"a081bf31-4301-4bff-ab97-70d0a3e3e78c\"\n    ]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{userToken}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e6e1c484-2247-4c92-b32b-1a3912ae6ac8",
+    "colId": "dbe0b41d-c49a-4061-9367-8f800433bb06",
+    "containerId": "",
+    "name": "Get Bookings",
+    "url": "{{baseUrl}}/booking",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-18T15:47:07.683Z",
+    "modified": "2023-04-18T15:47:59.126Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{userToken}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "821584a4-34ee-49c1-b23e-b173e0d0b21a",
+    "colId": "dbe0b41d-c49a-4061-9367-8f800433bb06",
+    "containerId": "",
+    "name": "Get Booking By Id",
+    "url": "{{baseUrl}}/booking/cf85894f-31c0-4055-82fa-ee63095a5fe1",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-18T15:56:53.116Z",
+    "modified": "2023-04-18T18:28:12.238Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{userToken}}"
     },
     "tests": []
   }
