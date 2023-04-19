@@ -239,16 +239,39 @@
     "colId": "dbe0b41d-c49a-4061-9367-8f800433bb06",
     "containerId": "",
     "name": "Get Booking By Id",
-    "url": "{{baseUrl}}/booking/cf85894f-31c0-4055-82fa-ee63095a5fe1",
+    "url": "{{baseUrl}}/booking/253c0e3a-22c8-4ae1-90d1-1ac18095dbb9",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-04-18T15:56:53.116Z",
-    "modified": "2023-04-18T18:28:12.238Z",
+    "modified": "2023-04-19T16:53:10.160Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{userToken}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1b699f06-a757-4424-86fd-ccd046039483",
+    "colId": "dbe0b41d-c49a-4061-9367-8f800433bb06",
+    "containerId": "",
+    "name": "Return Book",
+    "url": "{{baseUrl}}/booking/return/253c0e3a-22c8-4ae1-90d1-1ac18095dbb9",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-19T14:46:33.059Z",
+    "modified": "2023-04-19T16:53:23.708Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
     },
     "tests": []
   }

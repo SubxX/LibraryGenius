@@ -1,8 +1,8 @@
 import { Router } from "express";
 
 import { authMiddleWare } from "../middleware/auth.middleware";
-import { createBooking, getUserBookings, getBookingData } from "../controllers/booking.controller";
-import { userMiddleWare } from "../middleware/initiator.middleware";
+import { createBooking, getUserBookings, getBookingData, returnBook } from "../controllers/booking.controller";
+import { managerMiddleWare, userMiddleWare } from "../middleware/initiator.middleware";
 
 
 const router = Router()
@@ -54,6 +54,25 @@ router.get('/:id', authMiddleWare, userMiddleWare, async (req, res) => {
             })
     }
 });
+
+router.get('/return/:id', authMiddleWare, managerMiddleWare, async (req, res) => {
+    try {
+        const payload = {
+            id: req.params.id,
+            manager_id: req.user.id
+        }
+        const data = await returnBook(payload)
+        res.send(data)
+    } catch (err: any) {
+        res
+            .status(err?.status ?? 500)
+            .send({
+                status: err?.status ?? 500,
+                message: err?.message
+            })
+    }
+});
+
 
 
 export default router

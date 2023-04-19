@@ -83,3 +83,43 @@ export const getBookingData = async (payload: { id: string, created_by: string }
     })
     return bookings
 }
+
+export const returnBook = async (payload: { id: string; manager_id: string }) => {
+    const { manager_id, id } = payload
+    const todayDate = dayjs()
+
+    const bookingItem = await prisma.bookingItem.findUniqueOrThrow({
+        where: { id },
+        include: {
+            bookItem: true
+        }
+    })
+
+    // Check if fine should apply
+    const dueDays = todayDate.diff(bookingItem.return_date, 'days')
+    if (dueDays > 0) {
+        const fineAmount = dueDays * bookingItem.bookItem.fine_amount
+        await prisma.fine.create({
+            data: {
+                manager_id,
+                created_by: bookingItem.created_by,
+                booking_item: bookingItem.id,
+                amount: fineAmount,
+            }
+        })
+    }
+
+    // update return date to current date
+    await prisma.bookingItem.update({
+        where: { id },
+        data: { returned_at: todayDate.toISOString() }
+    })
+
+    // change book item availability to true
+    await prisma.bookItem.update({
+        where: { id: bookingItem.book_item },
+        data: { isAvailable: true }
+    })
+
+    return { status: 200, message: 'Book returned successfully!' }
+}
