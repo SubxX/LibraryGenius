@@ -27,7 +27,9 @@ app.use(express.json({ limit: "50mb" }))
 
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.get('/api', (req, res) => res.send({ message: 'Welcome to backend!' }));
+app.get('/api', (req, res) => {
+  throw new Error('asd')
+});
 app.use('/api/categories', categoriesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/author', authorsRouter)
@@ -40,3 +42,13 @@ const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
 server.on('error', console.error);
+
+const errorLogger = (err, req, res, next) => {
+  res.status(err?.status ?? 500)
+    .send({
+      status: err?.status ?? 500,
+      message: err?.message ?? 'Internal server error'
+    })
+}
+
+app.use(errorLogger)
