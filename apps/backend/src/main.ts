@@ -1,4 +1,3 @@
-// import { StrictAuthProp } from '@clerk/clerk-sdk-node';
 import express from 'express';
 import * as path from 'path';
 
@@ -27,9 +26,7 @@ app.use(express.json({ limit: "50mb" }))
 
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.get('/api', (req, res) => {
-  throw new Error('asd')
-});
+app.get('/api', (_, res) => res.send({ status: 200, message: 'Library Genius API is working fine!' }));
 app.use('/api/categories', categoriesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/author', authorsRouter)
@@ -52,3 +49,4 @@ const errorLogger = (err, req, res, next) => {
 }
 
 app.use(errorLogger)
+

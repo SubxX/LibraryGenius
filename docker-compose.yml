@@ -4,6 +4,7 @@ services:
     image: postgres
     container_name: postgresdb
     restart: always
+    profiles: ['dev', 'dockerize']
     environment:
       POSTGRES_DB: librarygenius
       POSTGRES_USER: user
@@ -11,9 +12,15 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
-    expose:
-      - 5432
-# networks:
-#   default:
-#     name: postgres-service_default
+      - 5433:5432
+      # HOST:CONTAINER_PORT
+
+  backend:
+    image: backend:1.0
+    container_name: backend
+    restart: always
+    profiles: ['dockerize']
+    depends_on:
+      - postgres
+    ports:
+      - 3333:3333
